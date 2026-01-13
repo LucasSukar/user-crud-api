@@ -1,0 +1,44 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            
+            <div class="col-lg-8 my-3"></div>
+            <p class="text-center lead"></p>
+            <div class="row">
+                <div class="col-lg">
+                    <h4>create count</h4>
+                    <form action="/login/register" method="POST">
+                        <div class="mb-3">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label>password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg">
+                    <h4>login</h4>
+                    <form action="/login/login" method="POST">
+                        <imput type="hidden" name="_csrf" value="<%csrfToken%>"></imput>
+                        <div class="mb-3">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label>password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+<%- include('includes/footer') %>
+   
