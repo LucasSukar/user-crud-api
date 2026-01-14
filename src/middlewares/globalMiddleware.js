@@ -1,5 +1,5 @@
 module.exports = (req, res, next) => {
-    res.locals.localVariavel = 'local variavel'
-    console.log()
+    res.locals.errors = req.flash('errors')
+    res.locals.success = req.flash('success')
     next()
 }

@@ -3,7 +3,7 @@ const validator = require('validator')
 
 const LoginSchema = new mongoose.Schema({
     email: {type: String, required: true},
-    senha: {type: String, required: true},
+    password: {type: String, required: true},
     
 })
 
@@ -30,7 +30,7 @@ class Login {
         this.cleanUp()
         if(!validator.isEmail(this.body.email)) this.errors.push('invalid email')
         if(this.body.password.length < 3 || this.body.password.length >= 50 ){
-            this.errors.push('a senhora precisa ter entre 3 e 50 caracteres')
+            this.errors.push('a senha precisa ter entre 3 e 50 caracteres')
         }
     }
 

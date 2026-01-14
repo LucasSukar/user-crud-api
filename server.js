@@ -21,7 +21,9 @@ const globalMiddleware = require('./src/middlewares/globalMiddleware')
 const csrfMiddleware = require('./src/middlewares/csrfMiddleware')
 
 // Segurança
-app.use(helmet())
+app.use(helmet({
+  contentSecurityPolicy: false
+}))
 
 // Body
 app.use(express.urlencoded({ extended: true }))
