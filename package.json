@@ -20,6 +20,7 @@
   "homepage": "https://github.com/LucasSukar/user-crud-api#readme",
   "dependencies": {
     "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^6.0.0",
     "core-js": "^3.47.0",
