@@ -19,7 +19,7 @@ exports.register = async (req, res) => {
         
         req.flash('success, login created')
         req.session.save(() =>{
-            return res.redirect('/login')
+            return res.redirect('/')
         })
     }catch(e){
         console.log(e)

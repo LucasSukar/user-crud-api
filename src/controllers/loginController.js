@@ -20,10 +20,15 @@ exports.login = async (req, res) => {
         req.flash('success' , 'login success')
         req.session.user = login.user
         req.session.save(() =>{
-            return res.redirect('/login')
+            return res.redirect('/')
         })
     }catch(e){
         console.log(e)
         return res.render('404')
     }
+}
+
+exports.logout = async (req,res) => {
+    req.session.destroy()
+    res.redirect('/')
 }

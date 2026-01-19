@@ -1,31 +1,72 @@
 <%- include('includes/head') %>
 <%- include('includes/nav') %>
+<% if(!user) { %>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            
-            <div class="col-lg-8 my-3"></div>
-            <p class="text-center lead"></p>
-            <div class="row">
-                <div class="col-lg">
-                    <h4>login</h4>
-                    <%- include('includes/messages') %>  <div class="row"></div>
-                    <form action="/login" method="POST">
-                        <input type="hidden" name="_csrf" value="<%= csrfToken%>"></input>
-                        <div class="mb-3">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label>password</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-6">
+                <%- include('includes/messages') %>
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form action="/login" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="exemplo@email.com">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <a class="nav-link text-muted small" href="/register">
+Don't have an account yet? Register here</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         </div>
-        <div class="col-lg-2"></div>
     </div>
+
+<% } else { %>
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-6">
+                
+                <div class="card shadow text-center">
+                    <div class="card-body p-5">
+                        <div class="mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-person-circle text-primary" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="card-title">Olá!</h3>
+                        
+                        <p class="lead text-muted">Você está conectado como:</p>
+                        <p class="fw-bold fs-5 mb-4"><%= user.email %></p>
+
+                        <form action="/login/logout" method="GET">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit" class="btn btn-danger px-5 py-2">
+                                Sair da Conta (Logout)
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<% } %>
 <%- include('includes/footer') %>
-   
