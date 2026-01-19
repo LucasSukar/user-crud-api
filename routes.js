@@ -11,6 +11,7 @@ route.get('/', homeController.homePage)
 
 //login rotes
 route.get('/login' , loginController.loginHome)
+route.post('/login' , loginController.login )
 route.get('/register' , registerController.registerHome)
 route.post('/register' , registerController.register )
 
