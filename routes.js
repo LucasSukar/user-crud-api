@@ -3,7 +3,8 @@ const route = express.Router()
 const homeController = require('./src/controllers/homeController')
 const loginController = require('./src/controllers/loginController')
 const registerController = require('./src/controllers/registerController')
-
+const contactsController = require('./src/controllers/contactsController')
+const { loginRequired } = require('./src/middlewares/loginRequiredMiddleware')
 
 
 //home
@@ -15,6 +16,8 @@ route.post('/login' , loginController.login )
 route.get('/login/logout' , loginController.logout )
 route.get('/register' , registerController.registerHome)
 route.post('/register' , registerController.register )
+route.get('/RegisterContacts' , loginRequired, contactsController.registerHome)
+route.post('/RegisterContacts' , contactsController.register )
 
 module.exports = route
 
