@@ -20,6 +20,7 @@ route.get('/Contacts' , loginRequired, contactsController.registerHome)
 route.post('/Contacts/register' , contactsController.register )
 route.get('/Contacts/index/:id' , contactsController.contactIndex )
 route.post('/Contacts/edit/:id' , contactsController.edit )
+route.get('/Contacts/delet/:id' , contactsController.delet )
 
 module.exports = route
 

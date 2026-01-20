@@ -51,9 +51,21 @@ class Contacts{
 
     static async getId(id) {
         if(typeof id !== 'string') return
-        const user = await ContactsModel.findById(id)
-        return user
+        const Contact = await ContactsModel.findById(id)
+        return Contact
     }
+
+    static async getContacts() {
+        const Contact = await ContactsModel.find()
+        .sort({createdIn: -1 })
+        return Contact
+    }
+    static async delet(id) {
+        if(typeof id !== 'string') return
+        const Contact = await ContactsModel.findOneAndDelete({_id: id})
+        return Contact
+    }
+
     async edit(id) {
         if(typeof id !== 'string') return
         this.valida()

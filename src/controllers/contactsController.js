@@ -53,4 +53,19 @@ exports.edit = async (req, res) => {
         res.render('404')
     }
 }
+exports.delet = async (req, res) => {
+    try {
+
+        if(!req.params.id) return res.render('404')
+        const contact = await Contacts.delet(req.params.id)
+        if(!contact) return res.render('404')
+        req.flash('success', 'Contact deleted.')
+        req.session.save(() => res.redirect('/')) 
+        return
+
+    } catch(e) {
+        console.log(e)
+        res.render('404')
+    }
+}
 
