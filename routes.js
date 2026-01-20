@@ -18,7 +18,8 @@ route.get('/register' , registerController.registerHome)
 route.post('/register' , registerController.register )
 route.get('/Contacts' , loginRequired, contactsController.registerHome)
 route.post('/Contacts/register' , contactsController.register )
-route.get('/Contacts/edit/:id' , contactsController.edit )
+route.get('/Contacts/index/:id' , contactsController.contactIndex )
+route.post('/Contacts/edit/:id' , contactsController.edit )
 
 module.exports = route
 

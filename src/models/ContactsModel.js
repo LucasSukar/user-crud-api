@@ -54,6 +54,12 @@ class Contacts{
         const user = await ContactsModel.findById(id)
         return user
     }
+    async edit(id) {
+        if(typeof id !== 'string') return
+        this.valida()
+        if(this.errors.length > 0) return
+        this.contacts = await ContactsModel.findByIdAndUpdate(id,this.body, {new: true})
+    }
 }
 
 module.exports = Contacts

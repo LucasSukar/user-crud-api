@@ -10,6 +10,10 @@
             <p class="text-center lead">Register contacts</p>
             <%- include('includes/messages') %>
         </div>
+        <%if(contact._id){%>
+        <form action="/Contacts/edit/<%=contact._id%>" method="POST">
+        <%}else{%>
+        <%}%>
         <form action="/Contacts/register" method="POST">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="mb-3">
