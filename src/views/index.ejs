@@ -22,7 +22,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                
+                <% if(contacts.length > 0){ %>
                 <tbody>
                     <% contacts.forEach(contact => { %>
                         <tr>
@@ -41,6 +41,9 @@
                     <% }) %>
                 </tbody>
             </table>
+            <% }else{ %>
+                <p class="text-center lead">no contacts found</p>
+            <%}%>
         </div>
         <div class="col-lg-2"></div>
     </div>
