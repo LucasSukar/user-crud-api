@@ -11,19 +11,20 @@ const ContactsSchema = new mongoose.Schema({
 
 const ContactsModel = mongoose.model('Contacts', ContactsSchema)
 
-function Contacts(body){
-    this.body = body
-    this.errors = []
-    this.contacts = null
-}
+class Contacts{
+    constructor(body){
+        this.body = body
+        this.errors = []
+        this.contacts = null
+    }
 
-Contacts.prototype.register = async function(){ 
-    this.valida()
-    if(this.errors.length > 0) return
-    this.contacts = await ContactsModel.create(this.body)
-}
+    async register(){ 
+        this.valida()
+        if(this.errors.length > 0) return
+        this.contacts = await ContactsModel.create(this.body)
+    }
 
-Contacts.prototype.valida = function(){
+    valida(){
         this.cleanUp()
         if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('invalid email')
         if(!this.body.name) this.errors.push('name required')
@@ -32,19 +33,26 @@ Contacts.prototype.valida = function(){
         }
     }
 
-Contacts.prototype.cleanUp = function(){
-    for(const key in this.body){
-        if (typeof this.body[key] !== 'string'){
-        this.body[key] = ''
+    cleanUp(){
+        for(const key in this.body){
+            if (typeof this.body[key] !== 'string'){
+            this.body[key] = ''
+            }
+        }
+        this.body = {
+            name: this.body.name,
+            surname: this.body.surname,
+            email: this.body.email,
+            number: this.body.number,
+            created: this.body.created,
+            
         }
     }
-    this.body = {
-        name: this.body.name,
-        surname: this.body.surname,
-        email: this.body.email,
-        number: this.body.number,
-        created: this.body.created,
-        
+
+    static async getId(id) {
+        if(typeof id !== 'string') return
+        const user = await ContactsModel.findById(id)
+        return user
     }
 }
 
