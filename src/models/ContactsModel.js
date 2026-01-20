@@ -7,6 +7,7 @@ const ContactsSchema = new mongoose.Schema({
     email: {type: String, required: false, default: ''},
     number: {type : String, required: false, default: ''},
     created: {type : Date, default: Date.now},
+    id_user: {type: String, Required: true}
 })
 
 const ContactsModel = mongoose.model('Contacts', ContactsSchema)
@@ -45,6 +46,7 @@ class Contacts{
             email: this.body.email,
             number: this.body.number,
             created: this.body.created,
+            id_user: this.body.id_user
             
         }
     }
@@ -55,8 +57,8 @@ class Contacts{
         return Contact
     }
 
-    static async getContacts() {
-        const Contact = await ContactsModel.find()
+    static async getContacts(id) {
+        const Contact = await ContactsModel.find({id_user: id})
         .sort({createdIn: -1 })
         return Contact
     }

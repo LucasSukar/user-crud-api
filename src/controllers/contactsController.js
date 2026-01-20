@@ -10,7 +10,11 @@ exports.registerHome = (req, res) => {
 
 exports.register = async (req, res) => {
     try{
-        const contact = new Contacts(req.body)
+        const user = {
+            ...req.body,
+            id_user: req.session.user._id
+        }
+        const contact = new Contacts(user)
         await contact.register()
         if(contact.errors.length > 0){
           req.flash('errors', contact.errors)
