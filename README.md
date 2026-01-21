@@ -63,14 +63,15 @@ Open your terminal in the project folder and run:
 ### 2. Configure Environment
 * Create a file named .env in the root directory and add your connection details:
 
-``CONNECTIONSTRING=your_mongodb_connection_string
-SESSIONSECRET=your_secret_key``
+``CONNECTIONSTRING=your_mongodb_connection_string``
+``SESSIONSECRET=your_secret_key``
 
 **(You need a MongoDB URI. If you don't have one, create a free cluster on MongoDB Atlas).**
 
 ### 3. Run the App
 * Start the server:
 ``npm start``
+
 **Access the application at: http://localhost:3000**
 
 ##  📂 Project Structure
