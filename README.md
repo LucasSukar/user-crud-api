@@ -53,48 +53,25 @@ Before running this project, ensure you have the following installed:
 
 ---
 
-## 📥 Installation & Setup
+## ⚡ Quick Start
 
-Follow these steps to get the application running locally:
+To run this project locally, follow these 3 simple steps:
 
-### 1. Clone the repository
-### 2. Install Dependencies
-Install all the necessary backend and frontend packages:
+### 1. Install Dependencies
+Open your terminal in the project folder and run:
+``npm install``
+### 2. Configure Environment
+* Create a file named .env in the root directory and add your connection details:
 
-Bash
+``CONNECTIONSTRING=your_mongodb_connection_string
+SESSIONSECRET=your_secret_key``
 
-npm install
-### 3. Environment Configuration
-Create a .env file in the root directory of the project. You need to define your database connection string and a session secret.
+**(You need a MongoDB URI. If you don't have one, create a free cluster on MongoDB Atlas).**
 
-File: .env
-
-Snippet de código
-
-CONNECTIONSTRING=mongodb+srv://<username>:<password>@cluster0.mongodb.net/yourdbname?retryWrites=true&w=majority
-SESSIONSECRET=your_super_secret_key_here
-Replace the MongoDB URI with your actual connection string.
-
-4. Build Frontend Assets (Optional)
-If you made changes to the frontend JavaScript in frontend/main.js, you need to rebuild the bundle:
-
-Bash
-
-npm run build
-▶️ Running the Application
-Development Mode
-Use this command to run the server with nodemon, which automatically restarts the server when you make code changes:
-
-Bash
-
-npm run dev
-Production Mode
-To run the server normally:
-
-Bash
-
-npm start
-Once the server is running, open your browser and access: http://localhost:3000
+### 3. Run the App
+* Start the server:
+``npm start``
+**Access the application at: http://localhost:3000**
 
 ##  📂 Project Structure
 This project follows the MVC (Model-View-Controller) pattern:
@@ -114,7 +91,7 @@ This project follows the MVC (Model-View-Controller) pattern:
 * **server.js:** The entry point of the application.
 
 ## 🛡️ How it Works
-* Registration: A new user signs up. The password is hashed, and the user is saved to the database.
+* **Registration:** A new user signs up. The password is hashed, and the user is saved to the database.
 
 * **Login:** The user logs in. A session is created and stored in MongoDB.
 
@@ -122,11 +99,11 @@ This project follows the MVC (Model-View-Controller) pattern:
 
 * **CRUD:**
 
-* When creating a contact, the user's ID is attached to the contact document.
+   * When creating a contact, the user's ID is attached to the contact document.
 
-* When editing or deleting, the system ensures the action is performed on the correct ID.
+   * When editing or deleting, the system ensures the action is performed on the correct ID.
 
-* Logout: The session is destroyed, and the user is redirected to the home page.
+   * Logout: The session is destroyed, and the user is redirected to the home page.
 
 ## 📝 License
 *This project is open-source and available for educational purposes.
