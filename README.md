@@ -64,6 +64,7 @@ Open your terminal in the project folder and run:
 * Create a file named .env in the root directory and add your connection details:
 
 ``CONNECTIONSTRING=your_mongodb_connection_string``
+
 ``SESSIONSECRET=your_secret_key``
 
 **(You need a MongoDB URI. If you don't have one, create a free cluster on MongoDB Atlas).**
@@ -107,4 +108,4 @@ This project follows the MVC (Model-View-Controller) pattern:
    * Logout: The session is destroyed, and the user is redirected to the home page.
 
 ## 📝 License
-*This project is open-source and available for educational purposes.
+* This project is open-source and available for educational purposes.
