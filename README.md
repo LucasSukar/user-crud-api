@@ -99,34 +99,34 @@ Once the server is running, open your browser and access: http://localhost:3000
 ##  📂 Project Structure
 This project follows the MVC (Model-View-Controller) pattern:
 
-*src/controllers: Handles the application logic (e.g., contactsController.js, loginController.js).
+* **src/controllers:** Handles the application logic (e.g., contactsController.js, loginController.js).
 
-*src/models: Defines database schemas and data validation rules (e.g., ContactsModel.js, LoginModel.js).
+* **src/models:** Defines database schemas and data validation rules (e.g., ContactsModel.js, LoginModel.js).
 
-*src/views: EJS templates for the User Interface (HTML).
+* **src/views:** EJS templates for the User Interface (HTML).
 
-*src/middlewares: Middleware functions for routes (e.g., CSRF checks, Login requirements).
+* **src/middlewares:** Middleware functions for routes (e.g., CSRF checks, Login requirements).
 
-*public/assets: Contains static files (CSS, bundled JS, images).
+* **public/assets:** Contains static files (CSS, bundled JS, images).
 
-*routes.js: Defines the application routes and links them to controllers.
-
-*server.js: The entry point of the application.
+* **routes.js:** Defines the application routes and links them to controllers.
+ 
+* **server.js:** The entry point of the application.
 
 ## 🛡️ How it Works
-*Registration: A new user signs up. The password is hashed, and the user is saved to the database.
+* Registration: A new user signs up. The password is hashed, and the user is saved to the database.
 
-*Login: The user logs in. A session is created and stored in MongoDB.
+* **Login:** The user logs in. A session is created and stored in MongoDB.
 
-*Dashboard: The user sees their contact list. The system filters contacts by the logged-in user's ID (id_user).
+* **Dashboard:** The user sees their contact list. The system filters contacts by the logged-in user's ID (id_user).
 
-CRUD:
+* **CRUD:**
 
-*When creating a contact, the user's ID is attached to the contact document.
+* When creating a contact, the user's ID is attached to the contact document.
 
-*When editing or deleting, the system ensures the action is performed on the correct ID.
+* When editing or deleting, the system ensures the action is performed on the correct ID.
 
-*Logout: The session is destroyed, and the user is redirected to the home page.
+* Logout: The session is destroyed, and the user is redirected to the home page.
 
 ## 📝 License
 *This project is open-source and available for educational purposes.
